@@ -8,8 +8,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -135,6 +137,43 @@ class MemoRepositoryTest {
         result.get().forEach(memo -> {
             System.out.println(memo);
         });
+
+    }
+
+    /**
+     * 쿼리 메서드 테스트
+     */
+    @Test
+    void testQueryMethods() {
+
+        List<Memo> list = memoRepository.findByMnoBetweenOrderByMnoDesc(70L, 80L);
+
+        for (Memo memo : list) {
+            System.out.println(memo);
+        }
+
+    }
+
+    /**
+     * 쿼리 메서드와 Pageable의 결합
+     */
+    @Test
+    void testQueryMethodWithPageable() {
+
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("mno").descending());
+
+        Page<Memo> result = memoRepository.findByMnoBetween(10L, 50L, pageable);
+
+        result.get().forEach(memo -> System.out.println(memo));
+
+    }
+
+    @Test
+    @Commit
+    @Transactional
+    void testDeleteQueryMethods() {
+
+        memoRepository.deleteMemoByMnoLessThan(10L);
 
     }
 
