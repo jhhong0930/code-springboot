@@ -104,8 +104,10 @@ class GuestbookRepositoryTest {
         BooleanExpression exTitle = qGuestbook.title.contains(keyword);
         BooleanExpression exContent = qGuestbook.content.contains(keyword);
 
+        // 두 키워드를 or로 연결
         BooleanExpression exAll = exTitle.or(exContent);
 
+        // BooleanBuilder에 추가
         builder.and(exAll);
 
         // gno가 0보다 큰
