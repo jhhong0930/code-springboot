@@ -73,8 +73,15 @@
         </div>
 
         <script th:inline="javascript">
-            var msg = [[${msg}]]
+
+            var msg = [[${msg}]];
+
             console.log(msg);
+
+            if(msg) {
+                $(".modal").modal();
+            }
+
         </script>
 
     </th:block>
