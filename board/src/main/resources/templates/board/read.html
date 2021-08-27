@@ -41,17 +41,16 @@
 
         <br>
 
-        <!-- 오류 해결 필요 p287 -->
         <a th:href="@{/board/modify(bno = ${dto.bno},
                                     page = ${requestDTO.page},
-                                    type = ${pageRequestDTO.type},
-                                    keyword = ${pageRequestDTO.keyword}) }">
+                                    type = ${requestDTO.type},
+                                    keyword = ${requestDTO.keyword}) }">
             <button type="button" class="btn btn-primary">Modify</button>
         </a>
 
         <a th:href="@{/board/list(page = ${requestDTO.page},
-                                  type = ${pageRequestDTO.type},
-                                  keyword = ${pageRequestDTO.keyword}) }">
+                                  type = ${requestDTO.type},
+                                  keyword = ${requestDTO.keyword}) }">
             <button type="button" class="btn btn-info">List</button>
         </a>
 
