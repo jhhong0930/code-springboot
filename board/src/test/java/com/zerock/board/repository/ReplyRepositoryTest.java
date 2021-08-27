@@ -9,8 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class ReplyRepositoryTest {
 
