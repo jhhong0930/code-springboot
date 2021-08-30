@@ -30,12 +30,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.logout(); // 로그아웃 처리, CSRF 토큰 사용시 POST 방식으로만 처리, 미사용시 GET으로 처리 가능
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-        auth.inMemoryAuthentication().withUser("user1")
-                .password("$2a$10$fFh8dgnNSpFXD9joEJUdOuyVu3e.l9z0LVS9TFLU8ZzHhQKkXbAeO")
-                .roles("USER");
-    }
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//
+//        auth.inMemoryAuthentication().withUser("user1")
+//                .password("$2a$10$fFh8dgnNSpFXD9joEJUdOuyVu3e.l9z0LVS9TFLU8ZzHhQKkXbAeO")
+//                .roles("USER");
+//    }
 
 }
