@@ -28,6 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin(); // 인가/인증에 문제시 로그인 화면
         http.csrf().disable(); // CSRF 토큰 발행 안함
         http.logout(); // 로그아웃 처리, CSRF 토큰 사용시 POST 방식으로만 처리, 미사용시 GET으로 처리 가능
+        http.oauth2Login();
     }
 
 //    @Override
